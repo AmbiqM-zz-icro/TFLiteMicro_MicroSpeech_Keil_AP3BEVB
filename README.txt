@@ -44,7 +44,7 @@ Place this directory, "micro_speech", at
 
 5a)
 Enter the correct directory for the project by running 
-"cd "tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/boards/apollo3_evb/examples"
+"cd tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/boards/apollo3_evb/examples"
 
 5b)
 Download the Keil project to the exmaples directory with 
