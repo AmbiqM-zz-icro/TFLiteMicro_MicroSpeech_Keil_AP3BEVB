@@ -15,7 +15,7 @@ iii)Enter the source root directory by running "cd tensorflow"
 Unable to successfully run 
 "make -f tensorflow/lite/experimental/micro/tools/make/Makefile TARGET=apollo3evb third_party_downloads"
 in a Windows ENV with out changes.
-Modify "tensorflow/lite/experimental/micro/tools/make/apollo3evb_makefile.inc".
+Modify "tensorflow/lite/experimental/micro/tools/make/targets/apollo3evb_makefile.inc".
 
 leave only :
   $(eval $(call add_third_party_download,$(AM_SDK_URL),$(AM_SDK_MD5),AmbiqSuite-Rel2.0.0,patch_am_sdk))
@@ -61,7 +61,6 @@ The contents of
 should be :
 README.txt (This document)
 keil (Keil project for micro_speech)
-src (Apollo3 EVB specific source files)
 Support (supporting files needed to run keil project for AP3B EVB)
 SupportMaya (supporting files needed to run keil project for Maya board)
 
@@ -76,16 +75,20 @@ sed -i -e '44s/sys\/types/stdint/g' ../../../../../kissfft/kiss_fft.h;
 
 
 8)
-// Apollo3 EVB specific features compile options:
-// USE AM_BSP_NUM_LEDS : LED initialization and management per EVB target (# of LEDs defined in EVB BSP) 
-// USE_TIME_STAMP : Enable timers and time stamping for debug and performance profiling (customize per application) 
-// USE_DEBUG_GPIO : Enable GPIO flag polling for debug and performance profiling (customize per application) 
-// USE_MAYA : Enable specific pin configuration and features for AP3B "quarter" sized board
+Open the keil project in "tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/boards/apollo3_evb/examples/micro_speech/keil" with the Keil uVision program.
 
 *Keil project points to 
 "tensorflow/lite/experimental/micro/examples/micro_speech/main.cc", 
 "tensorflow/lite/experimental/micro/examples/micro_speech/apollo3evb/audio_provider.cc", and
 "tensorflow/lite/experimental/micro/examples/micro_speech/apollo3evb/command_responder.cc"!!!
+
+8a)
+Compile options:
+// Apollo3 EVB specific features compile options:
+// USE AM_BSP_NUM_LEDS : LED initialization and management per EVB target (# of LEDs defined in EVB BSP) 
+// USE_TIME_STAMP : Enable timers and time stamping for debug and performance profiling (customize per application) 
+// USE_DEBUG_GPIO : Enable GPIO flag polling for debug and performance profiling (customize per application) 
+// USE_MAYA : Enable specific pin configuration and features for AP3B "quarter" sized board
 
 
 9)
